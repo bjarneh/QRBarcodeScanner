@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         scannerView.stopCamera();
     }
 
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         switch (requestCode) {
             case REQUEST_CAMERA:
                 if (grantResults.length > 0) {
