@@ -128,6 +128,13 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         Log.d("QRCodeScanner", result.getText());
         Log.d("QRCodeScanner", result.getBarcodeFormat().toString());
 
+        // Very basic HTTP regex :-)
+        if(myResult.matches("^http(s)?.*$")) {
+            Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myResult));
+            startActivity(browserIntent);
+        }
+
+/*
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Scan Result");
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -146,5 +153,6 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
         builder.setMessage(result.getText());
         AlertDialog alert1 = builder.create();
         alert1.show();
+*/
     }
 }
